@@ -16,7 +16,7 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
 
-        android:background="@color/primary"
+        android:background="#3EFFFFFF"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textStyle="bold|italic"

@@ -114,6 +114,7 @@ public class ViewTeams extends AppCompatActivity implements JsonResponse, Adapte
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        team_id=tid[i];
         final CharSequence[] items = {"View Players", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(ViewTeams.this);
@@ -124,7 +125,7 @@ public class ViewTeams extends AppCompatActivity implements JsonResponse, Adapte
 
                 if (items[item].equals("View Players")) {
 
-                    startActivity(new Intent(getApplicationContext(), ChatHere.class));
+                    startActivity(new Intent(getApplicationContext(), ViewPlayers.class));
 
                 } else if (items[item].equals("Cancel")) {
                     dialog.dismiss();
@@ -134,5 +135,13 @@ public class ViewTeams extends AppCompatActivity implements JsonResponse, Adapte
 
         });
         builder.show();
+    }
+
+    public void onBackPressed()
+    {
+        // TODO Auto-generated method stub
+        super.onBackPressed();
+        Intent b=new Intent(getApplicationContext(),UserHome.class);
+        startActivity(b);
     }
 }

@@ -6,7 +6,7 @@
     android:padding="30dp"
     android:orientation="vertical"
     android:background="@color/primary"
-    tools:context=".ViewPlayers" >
+    tools:context=".ViewPLayerUpdates" >
 
     <TextView
         android:id="@+id/textView1"
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="View Players "
+        android:text="Player Updates"
         android:textSize="25dp"
         android:textStyle="italic|bold"
         android:textColor="@color/secondary"
