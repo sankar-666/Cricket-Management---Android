@@ -139,7 +139,7 @@ public class ViewMatch extends AppCompatActivity implements JsonResponse, Adapte
 
                     }else if (items[item].equals("Extras")) {
 
-                        startActivity(new Intent(getApplicationContext(), ViewScores.class));
+                        startActivity(new Intent(getApplicationContext(), ViewExtrasScore.class));
 
                     }else if (items[item].equals("Cancel")) {
 
