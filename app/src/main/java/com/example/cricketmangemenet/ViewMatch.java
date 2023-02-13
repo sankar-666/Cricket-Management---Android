@@ -24,7 +24,7 @@ public class ViewMatch extends AppCompatActivity implements JsonResponse, Adapte
 
     ListView lv1;
     String [] photo;
-    public static String path,match_id;
+    public static String path,match_id,matchstat;
     String[] t1name,t2name,mid,stat,date,tid,value;
     SharedPreferences sh;
 
@@ -116,27 +116,65 @@ public class ViewMatch extends AppCompatActivity implements JsonResponse, Adapte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         match_id=mid[i];
+        matchstat=stat[i];
 
-        final CharSequence[] items = {"View Score", "Cancel"};
+        if(matchstat.equalsIgnoreCase("pending")) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ViewMatch.this);
-        // builder.setTitle("Add Photo!");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
 
-                if (items[item].equals("View Score")) {
+            final CharSequence[] items = {"Latest Batting Score", "Latest Bowling Score", "Extras", "Cancel"};
 
-                    startActivity(new Intent(getApplicationContext(), ViewScores.class));
+            AlertDialog.Builder builder = new AlertDialog.Builder(ViewMatch.this);
+            // builder.setTitle("Add Photo!");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int item) {
 
-                } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
+                    if (items[item].equals("Latest Batting Score")) {
+
+                        startActivity(new Intent(getApplicationContext(), ViewBattingScore.class));
+
+                    } else if (items[item].equals("Latest Bowling Score")) {
+
+                        startActivity(new Intent(getApplicationContext(), ViewBowlingScore.class));
+
+                    }else if (items[item].equals("Extras")) {
+
+                        startActivity(new Intent(getApplicationContext(), ViewScores.class));
+
+                    }else if (items[item].equals("Cancel")) {
+
+                        dialog.dismiss();
+                    }
+
                 }
 
-            }
+            });
+            builder.show();
 
-        });
-        builder.show();
+        }else {
+
+            final CharSequence[] items = {"Result", "Cancel"};
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(ViewMatch.this);
+            // builder.setTitle("Add Photo!");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int item) {
+
+                    if (items[item].equals("Result")) {
+
+                        startActivity(new Intent(getApplicationContext(), ViewScores.class));
+
+                    } else if (items[item].equals("Cancel")) {
+                        dialog.dismiss();
+                    }
+
+                }
+
+            });
+            builder.show();
+
+        }
     }
 
     public void onBackPressed()
